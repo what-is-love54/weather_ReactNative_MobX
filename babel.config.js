@@ -4,8 +4,18 @@ module.exports = {
     [
       '@babel/plugin-proposal-decorators',
       {
-        legacy: true,
-      },
+        legacy: true
+      }
     ],
-  ],
+    [
+      require.resolve('babel-plugin-module-resolver'),
+      {
+        cwd: 'babelrc',
+        extensions: ['.ts', '.tsx', '.js', '.ios.js', '.android.js'],
+        alias: {
+          '~': './source'
+        }
+      }
+    ]
+  ]
 };

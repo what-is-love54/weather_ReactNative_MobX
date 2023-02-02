@@ -5,5 +5,7 @@ module.exports = {
     ios: {
       sourceDir: './ios',
     },
+    android: {},
   },
+  assets: ['./assets/fonts/'],
 };

@@ -1,7 +1,9 @@
+/** @format */
+
 module.exports = {
   arrowParens: 'avoid',
   bracketSameLine: false,
-  bracketSpacing: false,
+  bracketSpacing: true,
   singleQuote: true,
   trailingComma: 'all',
   requirePragma: false,

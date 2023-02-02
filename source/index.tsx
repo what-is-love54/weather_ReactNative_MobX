@@ -1,5 +1,7 @@
+/** @format */
+
 import React from 'react';
-import type { PropsWithChildren } from 'react';
+import type {PropsWithChildren} from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -7,19 +9,20 @@ import {
   StyleSheet,
   Text,
   useColorScheme,
-  View
+  View,
 } from 'react-native';
 import {
   DebugInstructions,
   Header,
   LearnMoreLinks,
-  ReloadInstructions
+  ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
 type SectionProps = PropsWithChildren<{
   title: string;
 }>;
-function Section({ children, title }: SectionProps): JSX.Element {
+
+function Section({children, title}: SectionProps): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
 
   return (
@@ -28,8 +31,8 @@ function Section({ children, title }: SectionProps): JSX.Element {
         style={[
           styles.sectionTitle,
           {
-            color: isDarkMode ? '#fff' : '#000'
-          }
+            color: isDarkMode ? '#fff' : '#000',
+          },
         ]}
       >
         {title}
@@ -38,8 +41,8 @@ function Section({ children, title }: SectionProps): JSX.Element {
         style={[
           styles.sectionDescription,
           {
-            color: isDarkMode ? '#fff' : '#000'
-          }
+            color: isDarkMode ? '#fff' : '#000',
+          },
         ]}
       >
         {children}
@@ -52,7 +55,7 @@ function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
-    backgroundColor: !isDarkMode ? '#fff' : '#000'
+    backgroundColor: !isDarkMode ? '#fff' : '#000',
   };
 
   return (
@@ -68,7 +71,7 @@ function App(): JSX.Element {
         <Header />
         <View
           style={{
-            backgroundColor: !isDarkMode ? '#fff' : '#000'
+            backgroundColor: !isDarkMode ? '#fff' : '#000',
           }}
         >
           <Section title="Step One">
@@ -94,20 +97,20 @@ function App(): JSX.Element {
 const styles = StyleSheet.create({
   sectionContainer: {
     marginTop: 32,
-    paddingHorizontal: 24
+    paddingHorizontal: 24,
   },
   sectionTitle: {
     fontSize: 24,
-    fontWeight: '600'
+    fontWeight: '600',
   },
   sectionDescription: {
     marginTop: 8,
     fontSize: 18,
-    fontWeight: '400'
+    fontWeight: '400',
   },
   highlight: {
-    fontWeight: '700'
-  }
+    fontWeight: '700',
+  },
 });
 
 export default App;

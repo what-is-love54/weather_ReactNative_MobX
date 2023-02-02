@@ -7,6 +7,12 @@
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
-    "noImplicitAny": true
+    "noImplicitAny": true,
+    "strict": true,
+    "baseUrl": "./source",
+    "paths": {
+      "~/*": ["*"]
+    },
+    "esModuleInterop": true
   }
 }

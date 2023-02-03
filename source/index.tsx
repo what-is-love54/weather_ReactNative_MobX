@@ -17,7 +17,7 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-import SplashScreen from 'react-native-splash-screen';
+import RNBootSplash from 'react-native-bootsplash';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -60,7 +60,7 @@ function App(): JSX.Element {
   };
 
   useEffect(() => {
-    SplashScreen.hide();
+    RNBootSplash.hide({ fade: true, duration: 1500 });
   }, []);
 
   return (

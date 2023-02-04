@@ -11,8 +11,9 @@
   // You can add your custom initial props in the dictionary below.
   // They will be passed down to the ViewController used by React Native.
   self.initialProps = @{};
-
-  return [super application:application didFinishLaunchingWithOptions:launchOptions];
+    [super application:application didFinishLaunchingWithOptions:launchOptions];
+    [RNBootSplash initWithStoryboard:@"LaunchScreen" rootView:self.window.rootViewController.view];
+  return YES;
 }
 
 - (NSURL *)sourceURLForBridge:(RCTBridge *)bridge
@@ -31,7 +32,6 @@
 /// @return: `true` if the `concurrentRoot` feature is enabled. Otherwise, it returns `false`.
 - (BOOL)concurrentRootEnabled
 {
-   [RNBootSplash initWithStoryboard:@"LaunchScreen" rootView:self.window.rootViewController.view];
   return true;
 }
 

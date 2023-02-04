@@ -6,6 +6,7 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios --simulator='iPhone 14 Pro'",
     "start": "react-native start",
+    "build-splash": "react-native generate-bootsplash source/assets/splash_screen/mainLogo.png --background-color=FFFFFF --logo-width=100 --assets-path=assets --flavor=main",
     "test": "jest",
     "lint": "eslint source/**/*.{js,jsx,ts,tsx,json}",
     "lint:fix": "eslint --fix 'source/**/*.{js,jsx,ts,tsx,json}'",
@@ -25,7 +26,7 @@
     "mobx-react": "7.6.0",
     "react": "18.2.0",
     "react-native": "0.71.1",
-    "react-native-bootsplash": "^4.4.2"
+    "react-native-bootsplash": "4.4.2"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

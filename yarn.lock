@@ -6255,7 +6255,7 @@ react-is@^17.0.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-17.0.2.tgz#e691d4a8e9c789365655539ab372762b0efb54f0"
   integrity sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==
 
-react-native-bootsplash@^4.4.2:
+react-native-bootsplash@4.4.2:
   version "4.4.2"
   resolved "https://registry.yarnpkg.com/react-native-bootsplash/-/react-native-bootsplash-4.4.2.tgz#85186daeb78dcac8c5d3ee0b72fee0a312adf841"
   integrity sha512-lJwCxqTDxDUp/gZ1FJWJnyIoXhOK7kZJbPZm5dFEhvFa7po86PHn6kaKIwQOpsp201Ip2VWBwl1xM7HD43lDcA==

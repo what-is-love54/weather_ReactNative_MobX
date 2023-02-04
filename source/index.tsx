@@ -60,7 +60,7 @@ function App(): JSX.Element {
   };
 
   useEffect(() => {
-    RNBootSplash.hide({ fade: true, duration: 1500 });
+    RNBootSplash.hide({ fade: true, duration: 200 });
   }, []);
 
   return (

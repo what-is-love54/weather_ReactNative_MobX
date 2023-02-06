@@ -60,7 +60,13 @@ function App(): JSX.Element {
   };
 
   useEffect(() => {
-    RNBootSplash.hide({ fade: true, duration: 200 });
+    const init = async () => {
+      // can load some api
+    };
+
+    init().finally(async () => {
+      await RNBootSplash.hide({ fade: true, duration: 500 });
+    });
   }, []);
 
   return (

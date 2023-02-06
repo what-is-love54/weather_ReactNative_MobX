@@ -65,7 +65,7 @@ function App(): JSX.Element {
     };
 
     init().finally(async () => {
-      await RNBootSplash.hide({ fade: true, duration: 500 });
+      await RNBootSplash.hide({ fade: false, duration: 200 });
     });
   }, []);
 

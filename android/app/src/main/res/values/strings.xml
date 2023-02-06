@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Weather</string>
+    <string name="app_splash_text">StraightFlush</string>
 </resources>

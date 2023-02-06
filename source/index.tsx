@@ -1,6 +1,6 @@
 /** @format */
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import type { PropsWithChildren } from 'react';
 import {
   SafeAreaView,
@@ -17,6 +17,7 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import RNBootSplash from 'react-native-bootsplash';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -57,6 +58,16 @@ function App(): JSX.Element {
   const backgroundStyle = {
     backgroundColor: !isDarkMode ? '#fff' : '#000',
   };
+
+  useEffect(() => {
+    const init = async () => {
+      // can load some api
+    };
+
+    init().finally(async () => {
+      await RNBootSplash.hide({ fade: true, duration: 500 });
+    });
+  }, []);
 
   return (
     <SafeAreaView style={backgroundStyle}>

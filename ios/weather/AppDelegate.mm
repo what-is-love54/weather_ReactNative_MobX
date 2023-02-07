@@ -2,6 +2,7 @@
 
 #import <React/RCTBundleURLProvider.h>
 #import "RNBootSplash.h"
+#import "React/RCTI18nUtil.h"
 
 @implementation AppDelegate
 
@@ -13,6 +14,7 @@
   self.initialProps = @{};
     [super application:application didFinishLaunchingWithOptions:launchOptions];
     [RNBootSplash initWithStoryboard:@"LaunchScreen" rootView:self.window.rootViewController.view];
+    [[RCTI18nUtil sharedInstance] allowRTL:YES];
   return YES;
 }
 

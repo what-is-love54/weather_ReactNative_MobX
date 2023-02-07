@@ -20,17 +20,17 @@ module.exports = {
   },
   plugins: ['react', 'react-hooks', '@typescript-eslint', 'prettier'],
   rules: {
-    indent: ['error', 2, {SwitchCase: 1}],
+    indent: ['error', 2, { SwitchCase: 1 }],
     'linebreak-style': ['error', 'unix'],
-    quotes: ['error', 'single', {avoidEscape: true}],
+    quotes: ['error', 'single', { avoidEscape: true }],
     semi: ['error', 'always'],
     'no-empty-function': 'off',
     'react/display-name': 'off',
     'react/prop-types': 'off',
-    'max-len': ['error', {code: 80}],
+    'max-len': ['error', { code: 80 }],
     'padding-line-between-statements': [
       'error',
-      {blankLine: 'always', prev: ['const', 'let', 'var'], next: '*'},
+      { blankLine: 'always', prev: ['const', 'let', 'var'], next: '*' },
       {
         blankLine: 'any',
         prev: ['const', 'let', 'var'],
@@ -45,9 +45,10 @@ module.exports = {
         asyncArrow: 'always',
       },
     ],
-    'arrow-spacing': ['error', {before: true, after: true}],
+    'arrow-spacing': ['error', { before: true, after: true }],
     'react-native/no-raw-text': 0,
     'react-native/no-inline-styles': 0,
+    '@typescript-eslint/no-explicit-any': 'off',
   },
   settings: {
     'import/resolver': {

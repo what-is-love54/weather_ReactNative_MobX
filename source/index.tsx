@@ -2,18 +2,24 @@
 
 import React, { useEffect } from 'react';
 import { StatusBar } from 'react-native';
-// lib
+import { NavigationContainer } from '@react-navigation/native';
+import { enableScreens } from 'react-native-screens';
 import RNBootSplash from 'react-native-bootsplash';
 import {
   SafeAreaProvider,
   initialWindowMetrics,
 } from 'react-native-safe-area-context';
 // screens
-import Dashboard from '~/screens/App/Dashboard';
+import { Dashboard } from '~/screens/App';
 // const
 import { colors } from '~/constants';
+// utils
+import './services/i18n';
+import { navigationRef } from '~/utils';
 
-function App(): JSX.Element {
+enableScreens();
+
+export const App: React.FC<any> = () => {
   useEffect(() => {
     const init = async () => {
       // can load some api
@@ -31,9 +37,9 @@ function App(): JSX.Element {
         translucent
         backgroundColor={colors._transparent}
       />
-      <Dashboard />
+      <NavigationContainer ref={navigationRef}>
+        <Dashboard />
+      </NavigationContainer>
     </SafeAreaProvider>
   );
-}
-
-export default App;
+};

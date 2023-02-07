@@ -1,6 +1,9 @@
 {
   "extends": "@tsconfig/react-native/tsconfig.json",
   "compilerOptions": {
+    "types": [
+      "node"
+    ],
     "target": "es2015",
     "module": "es2015",
     "jsx": "react-native",

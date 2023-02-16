@@ -25,7 +25,7 @@ export const languageDetector: LanguageDetectorAsyncModule = {
   async: true,
   init: () => {
     if (__DEV__) {
-      console.log('init language detector');
+      console.log('===--->> Init Language Detector <<---===');
     }
   },
   detect: callback => {

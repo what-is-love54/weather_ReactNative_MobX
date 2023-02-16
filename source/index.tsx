@@ -8,14 +8,14 @@ import {
   SafeAreaProvider,
   initialWindowMetrics,
 } from 'react-native-safe-area-context';
-// screens
-import { Dashboard } from '~/screens/App';
 // const
-import { colors } from '~/constants';
+import { colors, IS_DARK_MODE } from '~/constants';
 // utils
 import './services/i18n';
 import { navigationRef } from '~/utils';
 import { useAppInit } from '~/hooks';
+// nav
+import { RootNavigation } from '~/navigation/rootNavigation';
 
 enableScreens();
 
@@ -29,12 +29,12 @@ export const App: React.FC<any> = () => {
   return (
     <SafeAreaProvider initialMetrics={initialWindowMetrics}>
       <StatusBar
-        barStyle="dark-content"
+        barStyle={IS_DARK_MODE ? 'light-content' : 'dark-content'}
         translucent
-        backgroundColor={colors._transparent}
+        backgroundColor={IS_DARK_MODE ? colors._black_rgb : colors._white_rgb}
       />
       <NavigationContainer ref={navigationRef}>
-        <Dashboard />
+        <RootNavigation />
       </NavigationContainer>
     </SafeAreaProvider>
   );

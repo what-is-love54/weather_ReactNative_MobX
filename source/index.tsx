@@ -4,7 +4,6 @@ import React from 'react';
 import { StatusBar } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { enableScreens } from 'react-native-screens';
-// import RNBootSplash from 'react-native-bootsplash';
 import {
   SafeAreaProvider,
   initialWindowMetrics,
@@ -26,16 +25,6 @@ export const App: React.FC<any> = () => {
   if (isInitLoading) {
     return null;
   }
-
-  // useEffect(() => {
-  //   const init = async () => {
-  //     // can load some api
-  //   };
-  //
-  //   init().finally(async () => {
-  //     await RNBootSplash.hide({ fade: false, duration: 200 });
-  //   });
-  // }, []);
 
   return (
     <SafeAreaProvider initialMetrics={initialWindowMetrics}>

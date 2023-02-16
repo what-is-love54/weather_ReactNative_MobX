@@ -12,8 +12,6 @@ export interface IEnvConfig {
   APP_ENV: ENV;
 }
 
-// console.log('===----->>>', Config.ENV);
-
 export const envConfig: Record<ENV, IEnvConfig> = {
   dev: {
     API_URL: Config.API_DEV_URL,

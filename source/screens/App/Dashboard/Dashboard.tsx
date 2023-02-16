@@ -6,6 +6,8 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import RNRestart from 'react-native-restart';
 // hooks
 import { useTranslation } from '~/hooks';
+// services
+import { envService } from '~/services';
 
 export const Dashboard: React.FC<any> = memo(() => {
   const insets = useSafeAreaInsets();
@@ -31,6 +33,7 @@ export const Dashboard: React.FC<any> = memo(() => {
     >
       <Text>Hello world!</Text>
       <Text>{t('APP_NAME')}</Text>
+      <Text>{envService.envConfig.APP_ENV}</Text>
       <Button title="Change to Arabic" onPress={handlePressChangeLanguage} />
     </View>
   );

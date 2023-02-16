@@ -1,10 +1,9 @@
 /** @format */
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import { StatusBar } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { enableScreens } from 'react-native-screens';
-import RNBootSplash from 'react-native-bootsplash';
 import {
   SafeAreaProvider,
   initialWindowMetrics,
@@ -16,19 +15,16 @@ import { colors } from '~/constants';
 // utils
 import './services/i18n';
 import { navigationRef } from '~/utils';
+import { useAppInit } from '~/hooks';
 
 enableScreens();
 
 export const App: React.FC<any> = () => {
-  useEffect(() => {
-    const init = async () => {
-      // can load some api
-    };
+  const { isInitLoading } = useAppInit();
 
-    init().finally(async () => {
-      await RNBootSplash.hide({ fade: false, duration: 200 });
-    });
-  }, []);
+  if (isInitLoading) {
+    return null;
+  }
 
   return (
     <SafeAreaProvider initialMetrics={initialWindowMetrics}>

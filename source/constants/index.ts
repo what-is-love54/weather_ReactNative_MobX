@@ -6,3 +6,4 @@ export * from './navigation';
 export * from './rtl';
 export * from './env';
 export * from './async-keys';
+export * from './routes';

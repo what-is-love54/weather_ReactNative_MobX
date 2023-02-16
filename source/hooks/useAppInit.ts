@@ -1,10 +1,10 @@
 /** @format */
 
 import { useEffect, useState } from 'react';
+import RNBootSplash from 'react-native-bootsplash';
 
 import { envService } from '~/services';
 import { initSyncStorage } from '~/utils';
-import RNBootSplash from 'react-native-bootsplash';
 
 export const useAppInit = () => {
   const [isInitLoading, setIsInitLoading] = useState(true);

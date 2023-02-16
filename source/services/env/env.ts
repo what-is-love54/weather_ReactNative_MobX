@@ -17,7 +17,6 @@ class Env {
     try {
       const { env } = getSync(ASYNC_KEYS.SETTINGS) || DEFAULT_SETTINGS;
 
-      console.log(env);
       if (Config.APP_ENV === ENV.PROD) {
         this._envConfig = this.getAppConfig(Config.APP_ENV);
       } else if (env) {

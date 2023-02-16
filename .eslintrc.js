@@ -49,6 +49,8 @@ module.exports = {
     'react-native/no-raw-text': 0,
     'react-native/no-inline-styles': 0,
     '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/no-namespace': 'off',
+    '@typescript-eslint/no-var-requires': 'error',
   },
   settings: {
     'import/resolver': {

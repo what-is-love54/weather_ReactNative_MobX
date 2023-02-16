@@ -50,7 +50,7 @@ module.exports = {
     'react-native/no-inline-styles': 0,
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/no-namespace': 'off',
-    '@typescript-eslint/no-var-requires': 'error',
+    '@typescript-eslint/no-var-requires': 'off',
   },
   settings: {
     'import/resolver': {

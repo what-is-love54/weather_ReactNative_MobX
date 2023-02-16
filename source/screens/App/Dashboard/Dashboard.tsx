@@ -5,6 +5,7 @@ import { Text, ScrollView, ImageBackground, StyleSheet } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 // hooks
 import { useTranslation } from '~/hooks';
+import { wind_grass } from '~/constants';
 
 export const Dashboard: React.FC<any> = memo(() => {
   const insets = useSafeAreaInsets();
@@ -12,7 +13,7 @@ export const Dashboard: React.FC<any> = memo(() => {
 
   return (
     <ImageBackground
-      source={require('../../../assets/gif/giphy-downsized-large.gif')}
+      source={wind_grass}
       style={{
         flex: 1,
       }}

@@ -1,6 +1,12 @@
 /** @format */
 
 export type RootStackParamList = {
-  Home: undefined;
+  App: undefined;
   Dashboard: undefined;
+  Settings: undefined;
+  MainTabNavigator:
+    | {
+        screen: string;
+      }
+    | undefined;
 };

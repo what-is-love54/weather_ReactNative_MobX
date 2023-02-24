@@ -1,10 +1,10 @@
 /** @format */
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Text, ScrollView, ImageBackground, StyleSheet } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 // hooks
-import { useTranslation, useAppContext } from '~/hooks';
+import { useStores, useTranslation } from '~/hooks';
 import {
   // wind_grass,
   // cloudy,
@@ -19,26 +19,10 @@ import { observer } from 'mobx-react';
 export const Dashboard: React.FC<any> = observer(() => {
   const insets = useSafeAreaInsets();
   const { t } = useTranslation();
-  const { api } = useAppContext();
-  const [loading, setLoading] = useState(false);
 
-  const load = async () => {
-    try {
-      setLoading(true);
-      await api.user.getWeather('London');
-    } finally {
-      setLoading(false);
-    }
-  };
+  const { userStore } = useStores();
 
-  //
-  useEffect(() => {
-    load();
-  }, []);
-
-  if (loading) {
-    return <Text>loading...</Text>;
-  }
+  console.log('=-=-=-=-=', userStore.all);
 
   return (
     <ImageBackground

@@ -1,17 +1,14 @@
 /** @format */
-import React, { useContext } from 'react';
-import { ApiService } from '~/services';
-import { AppStore } from '~/store';
+import { useContext } from 'react';
+import { StoreContext } from '~/store';
 
-interface AppContextType {
-  store: AppStore;
-  api: ApiService;
-}
+export const useStores = () => {
+  const context = useContext(StoreContext);
 
-export const AppContext = React.createContext<null | AppContextType>(null);
-
-export const useAppContext = () => {
-  const context = useContext(AppContext);
-
-  return context as AppContextType;
+  if (context === null) {
+    throw new Error(
+      'You have forgotten to wrap your root component with RootStoreProvider',
+    );
+  }
+  return context;
 };

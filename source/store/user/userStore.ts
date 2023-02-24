@@ -1,25 +1,24 @@
 /** @format */
-import { action, computed, makeObservable } from 'mobx';
-import { User } from '~/models';
-import { IUser } from '~/types';
-import { AppStore } from '~/store';
+import { makeAutoObservable } from 'mobx';
 
 export class UserStore {
-  userStoreMap = new Map<number, User>();
+  userWeatherCurrent: any;
+  userWeatherLocation = {};
+  userWeatherForecast = {};
 
-  constructor(private store: AppStore) {
-    makeObservable(this);
+  constructor() {
+    makeAutoObservable(this);
   }
 
-  @action load(user: any) {
-    // user.forEach(item =>
-    //   this.forecast.set(item.location.lat, new User(this.store, item)),
-    // );
-    // this.userStoreMap.set
-    console.log('====--------->>> user', user);
+  load(weather: any) {
+    this.userWeatherCurrent = weather.current;
+    this.userWeatherLocation = weather.location;
+    this.userWeatherForecast = weather.forecast;
   }
 
-  @computed get all() {
-    return Array.from(this.userStoreMap.values());
+  get all() {
+    return this.userWeatherCurrent;
   }
 }
+
+export const userStore = new UserStore();

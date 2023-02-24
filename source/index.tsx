@@ -13,16 +13,12 @@ import { colors, IS_DARK_MODE } from '~/constants';
 // utils
 import './services/i18n';
 import { navigationRef } from '~/utils';
-import { useAppInit, AppContext } from '~/hooks';
-import { AppStore } from '~/store';
+import { useAppInit } from '~/hooks';
+import { RootStoreProvider } from '~/store';
 // nav
 import { RootNavigation } from '~/navigation/rootNavigation';
-import { ApiService } from '~/services';
 
 enableScreens();
-
-const store = new AppStore();
-const api = new ApiService(store);
 
 export const App: React.FC<any> = () => {
   const { isInitLoading } = useAppInit();
@@ -32,7 +28,7 @@ export const App: React.FC<any> = () => {
   }
 
   return (
-    <AppContext.Provider value={{ store, api }}>
+    <RootStoreProvider>
       <SafeAreaProvider initialMetrics={initialWindowMetrics}>
         <StatusBar
           barStyle={IS_DARK_MODE ? 'light-content' : 'dark-content'}
@@ -43,6 +39,6 @@ export const App: React.FC<any> = () => {
           <RootNavigation />
         </NavigationContainer>
       </SafeAreaProvider>
-    </AppContext.Provider>
+    </RootStoreProvider>
   );
 };

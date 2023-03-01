@@ -1,15 +1,19 @@
 /** @format */
 
 import { userStore } from '~/store';
-import { apiService } from '~/services';
+import { ApiService } from '~/services';
 
-export class UserApi {
+class UserApi {
+  apiService: ApiService;
+  constructor() {
+    this.apiService = new ApiService();
+  }
   async getWeather(country: string) {
-    const res = await apiService.client.get('', {
+    const res = await this.apiService.client.get('', {
       params: { q: country, days: '3' },
     });
 
-    userStore.load(res.data);
+    userStore.loadFirstTimeWeather(res.data);
   }
 }
 

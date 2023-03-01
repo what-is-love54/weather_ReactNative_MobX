@@ -1,13 +1,19 @@
 /** @format */
 
-export type ILocation = {
-  name: string;
-  country: string;
-  lat: number;
-};
+export interface IUserLocation {
+  name?: string;
+  country?: string;
+}
 
-export interface IUser {
-  location: ILocation;
-  current: object;
-  forecast: object;
+export interface IUserCurrent {
+  temp_c?: number;
+  cloud?: number;
+  feelslike_c?: number;
+  last_updated?: string;
+  wind_kph?: number;
+  condition?: any;
+}
+
+export interface IUserForecast {
+  forecastday?: any;
 }

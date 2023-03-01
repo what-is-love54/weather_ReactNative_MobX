@@ -1,7 +1,7 @@
 /** @format */
 import { makeAutoObservable } from 'mobx';
 
-export class SettingsStore {
+class SettingsStore {
   DEFAULT_SETTINGS = {
     isFirstRun: true,
     env: null,

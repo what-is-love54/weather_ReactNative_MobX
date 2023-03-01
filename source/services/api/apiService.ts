@@ -3,7 +3,7 @@
 import axios from 'axios';
 import { envService } from '~/services';
 
-class ApiService {
+export class ApiService {
   client = axios.create({
     baseURL: envService.mainApiUrl,
     timeout: 30 * 1000, // 30 sec,
@@ -14,5 +14,3 @@ class ApiService {
     },
   });
 }
-
-export const apiService = new ApiService();

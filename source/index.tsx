@@ -14,7 +14,6 @@ import { colors, IS_DARK_MODE } from '~/constants';
 import './services/i18n';
 import { navigationRef } from '~/utils';
 import { useAppInit } from '~/hooks';
-import { RootStoreProvider } from '~/store';
 // nav
 import { RootNavigation } from '~/navigation/rootNavigation';
 
@@ -28,17 +27,15 @@ export const App: React.FC<any> = () => {
   }
 
   return (
-    <RootStoreProvider>
-      <SafeAreaProvider initialMetrics={initialWindowMetrics}>
-        <StatusBar
-          barStyle={IS_DARK_MODE ? 'light-content' : 'dark-content'}
-          translucent
-          backgroundColor={IS_DARK_MODE ? colors._black_rgb : colors._white_rgb}
-        />
-        <NavigationContainer ref={navigationRef}>
-          <RootNavigation />
-        </NavigationContainer>
-      </SafeAreaProvider>
-    </RootStoreProvider>
+    <SafeAreaProvider initialMetrics={initialWindowMetrics}>
+      <StatusBar
+        barStyle={IS_DARK_MODE ? 'light-content' : 'dark-content'}
+        translucent
+        backgroundColor={IS_DARK_MODE ? colors._black_rgb : colors._white_rgb}
+      />
+      <NavigationContainer ref={navigationRef}>
+        <RootNavigation />
+      </NavigationContainer>
+    </SafeAreaProvider>
   );
 };

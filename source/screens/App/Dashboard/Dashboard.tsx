@@ -1,28 +1,20 @@
 /** @format */
 
 import React from 'react';
-import { Text, ScrollView, ImageBackground, StyleSheet } from 'react-native';
+import { Text, ScrollView, ImageBackground } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 // hooks
-import { useStores, useTranslation } from '~/hooks';
-import {
-  // wind_grass,
-  // cloudy,
-  // flash,
-  // snow,
-  // sunset,
-  sunrise,
-  // windy,
-} from '~/constants';
+import { useStore } from '~/hooks';
+import { sunrise } from '~/constants';
 import { observer } from 'mobx-react';
+import { styles } from './styles';
 
 export const Dashboard: React.FC<any> = observer(() => {
   const insets = useSafeAreaInsets();
-  const { t } = useTranslation();
 
-  const { userStore } = useStores();
-
-  console.log('=-=-=-=-=', userStore.all);
+  const {
+    userStore: { userWeatherLocation, userWeatherCurrent },
+  } = useStore();
 
   return (
     <ImageBackground
@@ -32,6 +24,7 @@ export const Dashboard: React.FC<any> = observer(() => {
       }}
     >
       <ScrollView
+        contentContainerStyle={styles.container}
         style={[
           styles.scroll,
           {
@@ -40,20 +33,14 @@ export const Dashboard: React.FC<any> = observer(() => {
           },
         ]}
       >
-        <Text>Hello world! It`s dashboard!</Text>
-        <Text>{t('APP_NAME')}</Text>
+        <Text style={styles.locationName}>{userWeatherLocation.name}</Text>
+        <Text style={styles.locationTemperature}>
+          {userWeatherCurrent.temp_c}&deg;
+        </Text>
+        <Text style={styles.locationCloud}>
+          {userWeatherCurrent?.condition?.text}
+        </Text>
       </ScrollView>
     </ImageBackground>
   );
-});
-
-const styles = StyleSheet.create({
-  stretch: {
-    width: 50,
-    height: 200,
-    resizeMode: 'stretch',
-  },
-  scroll: {
-    flex: 1,
-  },
 });

@@ -1,23 +1,20 @@
 /** @format */
 import { makeAutoObservable } from 'mobx';
+import { IUserCurrent, IUserForecast, IUserLocation } from '~/types';
 
-export class UserStore {
-  userWeatherCurrent: any;
-  userWeatherLocation = {};
-  userWeatherForecast = {};
+class UserStore {
+  userWeatherLocation: IUserLocation = {};
+  userWeatherCurrent: IUserCurrent = {};
+  userWeatherForecast: IUserForecast = {};
 
   constructor() {
     makeAutoObservable(this);
   }
 
-  load(weather: any) {
+  loadFirstTimeWeather(weather: any) {
     this.userWeatherCurrent = weather.current;
-    this.userWeatherLocation = weather.location;
     this.userWeatherForecast = weather.forecast;
-  }
-
-  get all() {
-    return this.userWeatherCurrent;
+    this.userWeatherLocation = weather.location;
   }
 }
 

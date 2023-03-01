@@ -40,9 +40,7 @@ class Env {
   }
 
   get mainApiUrl() {
-    const env = this._envConfig.APP_ENV;
-
-    return env === 'prod' ? 'https://prod' : 'https://dev';
+    return this._envConfig.API_URL;
   }
 }
 

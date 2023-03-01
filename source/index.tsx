@@ -19,12 +19,8 @@ import { RootNavigation } from '~/navigation/rootNavigation';
 
 enableScreens();
 
-export const App: React.FC<any> = () => {
-  const { isInitLoading } = useAppInit();
-
-  if (isInitLoading) {
-    return null;
-  }
+export const App = () => {
+  useAppInit();
 
   return (
     <SafeAreaProvider initialMetrics={initialWindowMetrics}>

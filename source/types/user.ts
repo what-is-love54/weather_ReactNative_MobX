@@ -1,5 +1,11 @@
 /** @format */
 
+export interface IUserWeather {
+  current: object;
+  forecast: object;
+  location: object;
+}
+
 export interface IUserLocation {
   name?: string;
   country?: string;

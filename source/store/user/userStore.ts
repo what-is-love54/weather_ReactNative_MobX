@@ -1,6 +1,11 @@
 /** @format */
 import { makeAutoObservable } from 'mobx';
-import { IUserCurrent, IUserForecast, IUserLocation } from '~/types';
+import {
+  IUserCurrent,
+  IUserForecast,
+  IUserLocation,
+  IUserWeather,
+} from '~/types';
 
 class UserStore {
   userWeatherLocation: IUserLocation = {};
@@ -11,7 +16,7 @@ class UserStore {
     makeAutoObservable(this);
   }
 
-  loadFirstTimeWeather(weather: any) {
+  loadFirstTimeWeather(weather: IUserWeather) {
     this.userWeatherCurrent = weather.current;
     this.userWeatherForecast = weather.forecast;
     this.userWeatherLocation = weather.location;

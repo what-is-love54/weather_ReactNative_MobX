@@ -1,0 +1,20 @@
+/** @format */
+
+import React from 'react';
+import { Text, View } from 'react-native';
+// hooks
+import { observer } from 'mobx-react';
+import { styles } from './styles';
+
+export const Forecast: React.FC<any> = observer(() => {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.topContainer}>Forecast Weather</Text>
+      <Text style={styles.topContainer}>Forecast Weather</Text>
+      <Text style={styles.topContainer}>Forecast Weather</Text>
+      <Text style={styles.topContainer}>Forecast Weather</Text>
+      <Text style={styles.topContainer}>Forecast Weather</Text>
+      <Text style={styles.topContainer}>Forecast Weather</Text>
+    </View>
+  );
+});

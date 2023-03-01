@@ -2,17 +2,15 @@
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
-  mainContainer: {
-    flex: 1,
-  },
-  innerContainer: {
-    flex: 1,
-  },
   container: {
+    marginTop: 80,
+    width: 300,
+    backgroundColor: 'white',
     justifyContent: 'center',
     alignItems: 'center',
+    borderRadius: 12,
   },
-  scroll: {
-    flex: 1,
+  topContainer: {
+    paddingVertical: 20,
   },
 });

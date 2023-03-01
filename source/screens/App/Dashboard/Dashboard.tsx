@@ -1,13 +1,13 @@
 /** @format */
-
 import React from 'react';
-import { Text, ScrollView, ImageBackground } from 'react-native';
+import { ScrollView, ImageBackground } from 'react-native';
 // hooks
 import { useStore } from '~/hooks';
 import { sunrise } from '~/constants';
 import { observer } from 'mobx-react';
 import { styles } from './styles';
 import { InsetsView } from '~/components';
+import { MainInfo, Forecast } from './components';
 
 export const Dashboard: React.FC<any> = observer(() => {
   const {
@@ -15,24 +15,18 @@ export const Dashboard: React.FC<any> = observer(() => {
   } = useStore();
 
   return (
-    <ImageBackground
-      source={sunrise}
-      style={{
-        flex: 1,
-      }}
-    >
-      <InsetsView style={styles.mainContainer}>
+    <ImageBackground source={sunrise} style={styles.mainContainer}>
+      <InsetsView style={styles.innerContainer}>
         <ScrollView
-          contentContainerStyle={styles.container}
           style={styles.scroll}
+          contentContainerStyle={styles.container}
         >
-          <Text style={styles.locationName}>{userWeatherLocation.name}</Text>
-          <Text style={styles.locationTemperature}>
-            {userWeatherCurrent.temp_c}&deg;
-          </Text>
-          <Text style={styles.locationCloud}>
-            {userWeatherCurrent?.condition?.text}
-          </Text>
+          <MainInfo
+            city={userWeatherLocation.name}
+            temperature={userWeatherCurrent.temp_c}
+            condition={userWeatherCurrent?.condition?.text}
+          />
+          <Forecast />
         </ScrollView>
       </InsetsView>
     </ImageBackground>

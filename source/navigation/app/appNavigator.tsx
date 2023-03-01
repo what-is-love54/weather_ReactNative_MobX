@@ -12,7 +12,7 @@ import { Dashboard, Settings } from '~/screens/App';
 const Tab = createBottomTabNavigator<RootStackParamList>();
 const AppStack = createNativeStackNavigator<RootStackParamList>();
 
-const MainTabNavigator: React.FC<any> = () => {
+const MainTabNavigator = () => {
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
@@ -48,7 +48,7 @@ const MainTabNavigator: React.FC<any> = () => {
   );
 };
 
-export const AppNavigator: React.FC<any> = () => {
+export const AppNavigator = () => {
   return (
     <AppStack.Navigator
       screenOptions={{ headerShown: false }}

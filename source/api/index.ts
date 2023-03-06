@@ -1,3 +1,3 @@
 /** @format */
 
-export * from './user/userApi';
+export * from './userApi';

@@ -7,15 +7,17 @@ import RNBootSplash from 'react-native-bootsplash';
 
 import { envService } from '~/services';
 import { initSyncStorage } from '~/utils';
-import { userAPI } from '~/api';
+import { useStores } from '~/hooks';
 
 export const useAppInit = () => {
+  const { userStore } = useStores();
+
   useEffect(() => {
     const init = async () => {
       try {
         await initSyncStorage();
         await envService.init();
-        await userAPI.getWeather('London');
+        await userStore.loadWeather('London');
       } catch (err) {
         __DEV__ && console.warn('===--->> App Init Error <<---===', err);
       }

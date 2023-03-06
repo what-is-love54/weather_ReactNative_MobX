@@ -1,8 +1,8 @@
 /** @format */
 import { makeAutoObservable } from 'mobx';
 
-class SettingsStore {
-  DEFAULT_SETTINGS = {
+export default class SettingsStore {
+  static DEFAULT_SETTINGS = {
     isFirstRun: true,
     env: null,
   };
@@ -11,5 +11,3 @@ class SettingsStore {
     makeAutoObservable(this);
   }
 }
-
-export const settingsStore = new SettingsStore();

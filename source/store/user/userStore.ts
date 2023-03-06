@@ -5,22 +5,31 @@ import {
   IUserForecast,
   IUserLocation,
   IUserWeather,
-} from '~/types';
+} from '~/models';
+import { UserApi } from '~/api';
 
-class UserStore {
-  userWeatherLocation: IUserLocation = {};
-  userWeatherCurrent: IUserCurrent = {};
-  userWeatherForecast: IUserForecast = {};
+export default class UserStore {
+  userWeatherLocation = {} as IUserLocation;
+  userWeatherCurrent = {} as IUserCurrent;
+  userWeatherForecast = {} as IUserForecast;
 
   constructor() {
     makeAutoObservable(this);
   }
 
-  loadFirstTimeWeather(weather: IUserWeather) {
-    this.userWeatherCurrent = weather.current;
-    this.userWeatherForecast = weather.forecast;
-    this.userWeatherLocation = weather.location;
+  async loadWeather(location: string) {
+    try {
+      const response = await UserApi.getWeather(location);
+
+      this.setWeather(response.data);
+    } catch (e) {
+      console.log('==--> ERROR <--==', e);
+    }
+  }
+
+  setWeather(data: IUserWeather) {
+    this.userWeatherCurrent = data.current;
+    this.userWeatherForecast = data.forecast;
+    this.userWeatherLocation = data.location;
   }
 }
-
-export const userStore = new UserStore();

@@ -2,17 +2,17 @@
 import React from 'react';
 import { ScrollView, ImageBackground } from 'react-native';
 // hooks
-import { useStore } from '~/hooks';
+import { useStores } from '~/hooks';
 import { sunrise } from '~/constants';
 import { observer } from 'mobx-react';
 import { styles } from './styles';
 import { InsetsView } from '~/components';
 import { MainInfo, Forecast } from './components';
 
-export const Dashboard: React.FC<any> = observer(() => {
+export const Dashboard: React.FC = observer(() => {
   const {
     userStore: { userWeatherLocation, userWeatherCurrent },
-  } = useStore();
+  } = useStores();
 
   return (
     <ImageBackground source={sunrise} style={styles.mainContainer}>

@@ -4,7 +4,7 @@ import Config from 'react-native-config';
 
 import { getSync } from '~/utils';
 import { ENV, envConfig, IEnvConfig, ASYNC_KEYS } from '~/constants';
-import { DEFAULT_SETTINGS } from '~/store/settings/constants';
+import SettingsStore from '~/store/settings/settingsStore';
 
 class Env {
   constructor() {
@@ -15,7 +15,8 @@ class Env {
 
   async init() {
     try {
-      const { env } = getSync(ASYNC_KEYS.SETTINGS) || DEFAULT_SETTINGS;
+      const { env } =
+        getSync(ASYNC_KEYS.SETTINGS) || SettingsStore.DEFAULT_SETTINGS;
 
       if (Config.APP_ENV === ENV.PROD) {
         this._envConfig = this.getAppConfig(Config.APP_ENV);

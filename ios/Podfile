@@ -43,6 +43,10 @@ target 'weather' do
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
+  permissions_path = '../node_modules/react-native-permissions/ios'
+    pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways/Permission-LocationAlways.podspec"
+    pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse/Permission-LocationWhenInUse.podspec"
+
   target 'weatherTests' do
     inherit! :complete
     # Pods for testing

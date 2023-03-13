@@ -3,26 +3,76 @@
 import {
   check,
   request,
-  PERMISSIONS,
   RESULTS,
   openSettings,
   checkLocationAccuracy,
   requestLocationAccuracy,
 } from 'react-native-permissions';
-
-type CheckLocationAccuracyParams = {
-  onGranted?: () => void;
-  onBlocked?: () => void;
-  onDenied?: () => void;
-};
-
-type LocationAccuracyOptions = {
-  purposeKey: string;
-  onAuthorized?: () => void;
-  onDenied?: () => void;
-};
+import {
+  CheckPermission,
+  LocationAccuracyOptions,
+  RequestPermission,
+} from '~/types';
 
 class PermissionsService {
+  async requestPermission({
+    type,
+  }: // onGranted,
+  // onDenied,
+  // onBlocked,
+  RequestPermission) {
+    try {
+      const response = await request(type);
+
+      console.log('=-=-=-=-=-=-=-=-=-', response);
+
+      // switch (response) {
+      //   case RESULTS.GRANTED:
+      //     onGranted?.();
+      //     break;
+      //   case RESULTS.DENIED:
+      //     onDenied?.();
+      //     break;
+      //   case RESULTS.BLOCKED:
+      //     onBlocked?.();
+      //     break;
+      //   default:
+      //     onDenied?.();
+      //     break;
+      // }
+    } catch (err) {
+      __DEV__ && console.warn('checkPermission error ----', err);
+    }
+  }
+
+  async checkPermission({
+    type,
+    onGranted,
+    onDenied,
+    onBlocked,
+  }: CheckPermission) {
+    try {
+      const response = await check(type);
+
+      switch (response) {
+        case RESULTS.GRANTED:
+          onGranted?.();
+          break;
+        case RESULTS.DENIED:
+          onDenied?.();
+          break;
+        case RESULTS.BLOCKED:
+          onBlocked?.();
+          break;
+        default:
+          onDenied?.();
+          break;
+      }
+    } catch (err) {
+      __DEV__ && console.warn('checkPermission error ----', err);
+    }
+  }
+
   async handleNavigateToSettings() {
     try {
       await openSettings();
@@ -31,29 +81,11 @@ class PermissionsService {
     }
   }
 
-  async checkLocationAccuracy({
-    onGranted,
-    onBlocked,
-    onDenied,
-  }: CheckLocationAccuracyParams) {
+  async checkLocationAccuracy() {
     try {
       const accuracy = await checkLocationAccuracy();
 
       console.log('===------->> checkLocationAccuracy', accuracy);
-
-      // switch (accuracy) {
-      //   case RESULTS.GRANTED:
-      //     onGranted?.();
-      //     break;
-      //   case RESULTS.BLOCKED:
-      //     onBlocked?.();
-      //     break;
-      //   case RESULTS.DENIED:
-      //     onDenied?.();
-      //     break;
-      //   default:
-      //     break;
-      // }
 
       return accuracy;
     } catch (err) {
@@ -62,22 +94,14 @@ class PermissionsService {
   }
 
   async requestLocationAccuracy({
-    onDenied,
-    onAuthorized,
-    purposeKey,
+    purposeKey = 'full',
   }: LocationAccuracyOptions) {
     try {
-      const response = await requestLocationAccuracy({ purposeKey });
+      const response = await requestLocationAccuracy({
+        purposeKey: purposeKey,
+      });
 
       console.log('===------>> requestLocationAccuracy', response);
-      // const enabled = response.status === RESULTS.GRANTED;
-
-      // if (enabled) {
-      //   onAuthorized?.();
-      //   return;
-      // }
-      //
-      // onDenied?.();
     } catch (err) {
       __DEV__ && console.warn('requestLocationAccuracy error ----', err);
     }

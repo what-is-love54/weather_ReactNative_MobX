@@ -1,18 +1,23 @@
 /** @format */
-import React from 'react';
+import React, { useEffect } from 'react';
 import { ScrollView, ImageBackground } from 'react-native';
 // hooks
 import { useStores } from '~/hooks';
-import { sunrise } from '~/constants';
+import { permissionLocation, sunrise } from '~/constants';
 import { observer } from 'mobx-react';
 import { styles } from './styles';
 import { InsetsView } from '~/components';
 import { MainInfo, Forecast } from './components';
+import { permissionsService } from '~/services';
 
 export const Dashboard: React.FC = observer(() => {
   const {
     userStore: { userWeatherLocation, userWeatherCurrent },
   } = useStores();
+
+  useEffect(() => {
+    permissionsService.requestPermission({ type: permissionLocation });
+  }, []);
 
   return (
     <ImageBackground source={sunrise} style={styles.mainContainer}>

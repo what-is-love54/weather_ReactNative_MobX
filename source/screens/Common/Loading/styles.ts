@@ -1,19 +1,20 @@
 /** @format */
+
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
-  mainContainer: {
-    flex: 1,
-  },
-  innerContainer: {
-    flex: 1,
-  },
   container: {
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    marginHorizontal: 50,
   },
-  scroll: {
-    flex: 1,
+  permissionText: {
+    marginTop: 50,
+  },
+  permissionButton: {
+    marginTop: 50,
+  },
+  settingsButton: {
+    marginTop: 20,
   },
 });

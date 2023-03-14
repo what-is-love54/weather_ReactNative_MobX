@@ -2,44 +2,43 @@
 
 import {
   check,
-  request,
-  RESULTS,
-  openSettings,
   checkLocationAccuracy,
+  openSettings,
+  request,
   requestLocationAccuracy,
+  RESULTS,
 } from 'react-native-permissions';
 import {
   CheckPermission,
   LocationAccuracyOptions,
   RequestPermission,
 } from '~/types';
+import { permissionLocation } from '~/constants';
 
 class PermissionsService {
   async requestPermission({
     type,
-  }: // onGranted,
-  // onDenied,
-  // onBlocked,
-  RequestPermission) {
+    onGranted,
+    onDenied,
+    onBlocked,
+  }: RequestPermission) {
     try {
       const response = await request(type);
 
-      console.log('=-=-=-=-=-=-=-=-=-', response);
-
-      // switch (response) {
-      //   case RESULTS.GRANTED:
-      //     onGranted?.();
-      //     break;
-      //   case RESULTS.DENIED:
-      //     onDenied?.();
-      //     break;
-      //   case RESULTS.BLOCKED:
-      //     onBlocked?.();
-      //     break;
-      //   default:
-      //     onDenied?.();
-      //     break;
-      // }
+      switch (response) {
+        case RESULTS.GRANTED:
+          onGranted?.();
+          break;
+        case RESULTS.DENIED:
+          onDenied?.();
+          break;
+        case RESULTS.BLOCKED:
+          onBlocked?.();
+          break;
+        default:
+          onDenied?.();
+          break;
+      }
     } catch (err) {
       __DEV__ && console.warn('checkPermission error ----', err);
     }
@@ -73,6 +72,16 @@ class PermissionsService {
     }
   }
 
+  async checkIsLocationPermissionGranted() {
+    try {
+      const response = await check(permissionLocation);
+
+      return response === RESULTS.GRANTED;
+    } catch (err) {
+      __DEV__ && console.warn('checkPermission error ----', err);
+    }
+  }
+
   async handleNavigateToSettings() {
     try {
       await openSettings();
@@ -83,11 +92,7 @@ class PermissionsService {
 
   async checkLocationAccuracy() {
     try {
-      const accuracy = await checkLocationAccuracy();
-
-      console.log('===------->> checkLocationAccuracy', accuracy);
-
-      return accuracy;
+      return await checkLocationAccuracy();
     } catch (err) {
       __DEV__ && console.warn('checkLocationAccuracy error ----', err);
     }
@@ -97,11 +102,9 @@ class PermissionsService {
     purposeKey = 'full',
   }: LocationAccuracyOptions) {
     try {
-      const response = await requestLocationAccuracy({
+      return await requestLocationAccuracy({
         purposeKey: purposeKey,
       });
-
-      console.log('===------>> requestLocationAccuracy', response);
     } catch (err) {
       __DEV__ && console.warn('requestLocationAccuracy error ----', err);
     }

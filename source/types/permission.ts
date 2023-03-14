@@ -19,7 +19,7 @@ export type CheckPermission = {
 
 export type RequestPermission = {
   type: any;
-  // onGranted?: () => void;
-  // onBlocked?: () => void;
-  // onDenied?: () => void;
+  onGranted?: () => void;
+  onBlocked?: () => void;
+  onDenied?: () => void;
 };

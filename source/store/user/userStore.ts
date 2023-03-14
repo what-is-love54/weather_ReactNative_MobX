@@ -12,24 +12,32 @@ export default class UserStore {
   userWeatherLocation = {} as IUserLocation;
   userWeatherCurrent = {} as IUserCurrent;
   userWeatherForecast = {} as IUserForecast;
+  userWeatherLoading = false;
 
   constructor() {
     makeAutoObservable(this);
   }
 
-  async loadWeather(location: string) {
-    try {
-      const response = await UserApi.getWeather(location);
-
-      this.setWeather(response.data);
-    } catch (e) {
-      console.log('==--> ERROR <--==', e);
-    }
+  setUserWeatherLoading(load: boolean) {
+    this.userWeatherLoading = load;
   }
 
   setWeather(data: IUserWeather) {
     this.userWeatherCurrent = data.current;
     this.userWeatherForecast = data.forecast;
     this.userWeatherLocation = data.location;
+  }
+
+  async loadWeather(location: string) {
+    this.setUserWeatherLoading(true);
+    try {
+      const response = await UserApi.getWeather(location);
+
+      this.setWeather(response.data);
+    } catch (e) {
+      console.log('==--> ERROR <--==', e);
+    } finally {
+      this.setUserWeatherLoading(false);
+    }
   }
 }

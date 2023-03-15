@@ -7,6 +7,6 @@ export enum RootRoutes {
 }
 
 export enum RootStack {
-  App = 'App',
+  APP = 'App',
   LOADING = 'Loading',
 }

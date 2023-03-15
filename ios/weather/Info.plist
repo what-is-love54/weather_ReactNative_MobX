@@ -6,11 +6,6 @@
     <string>YOUR TEXT</string>
     <key>NSLocationAlwaysUsageDescription</key>
     <string>YOUR TEXT</string>
-    <key>NSLocationTemporaryUsageDescriptionDictionary</key>
-      <dict>
-        <key>YOUR-PURPOSE-KEY</key>
-        <string>YOUR TEXT</string>
-      </dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>

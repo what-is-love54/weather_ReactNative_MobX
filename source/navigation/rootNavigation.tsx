@@ -6,29 +6,17 @@ import { RootStackParamList } from './types';
 import { RootStack } from '~/constants';
 import { AppNavigator } from '~/navigation/app/appNavigator';
 import { Loading } from '~/screens/Common';
-import { useLocationPermission } from '~/hooks';
 
 const RootNavigationStack = createNativeStackNavigator<RootStackParamList>();
 
 export const RootNavigation = () => {
-  const {
-    loading: locationPermissionsLoading,
-    granted: locationPermissionsGranted,
-  } = useLocationPermission();
-
-  if (locationPermissionsLoading) {
-    return null;
-  }
-
   return (
     <RootNavigationStack.Navigator
       screenOptions={{ headerShown: false }}
-      initialRouteName={
-        locationPermissionsGranted ? RootStack.App : RootStack.LOADING
-      }
+      initialRouteName={RootStack.APP}
     >
       <RootNavigationStack.Screen
-        name={RootStack.App}
+        name={RootStack.APP}
         component={AppNavigator}
       />
 

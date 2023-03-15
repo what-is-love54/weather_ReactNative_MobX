@@ -2,18 +2,11 @@
 
 import {
   check,
-  checkLocationAccuracy,
   openSettings,
   request,
-  requestLocationAccuracy,
   RESULTS,
 } from 'react-native-permissions';
-import {
-  CheckPermission,
-  LocationAccuracyOptions,
-  RequestPermission,
-} from '~/types';
-import { permissionLocation } from '~/constants';
+import { CheckPermission, RequestPermission } from '~/types';
 
 class PermissionsService {
   async requestPermission({
@@ -53,6 +46,7 @@ class PermissionsService {
     try {
       const response = await check(type);
 
+      console.log(response);
       switch (response) {
         case RESULTS.GRANTED:
           onGranted?.();
@@ -72,16 +66,6 @@ class PermissionsService {
     }
   }
 
-  async checkIsLocationPermissionGranted() {
-    try {
-      const response = await check(permissionLocation);
-
-      return response === RESULTS.GRANTED;
-    } catch (err) {
-      __DEV__ && console.warn('checkPermission error ----', err);
-    }
-  }
-
   async handleNavigateToSettings() {
     try {
       await openSettings();
@@ -90,25 +74,25 @@ class PermissionsService {
     }
   }
 
-  async checkLocationAccuracy() {
-    try {
-      return await checkLocationAccuracy();
-    } catch (err) {
-      __DEV__ && console.warn('checkLocationAccuracy error ----', err);
-    }
-  }
-
-  async requestLocationAccuracy({
-    purposeKey = 'full',
-  }: LocationAccuracyOptions) {
-    try {
-      return await requestLocationAccuracy({
-        purposeKey: purposeKey,
-      });
-    } catch (err) {
-      __DEV__ && console.warn('requestLocationAccuracy error ----', err);
-    }
-  }
+  //   async checkLocationAccuracy() {
+  //     try {
+  //       return await checkLocationAccuracy();
+  //     } catch (err) {
+  //       __DEV__ && console.warn('checkLocationAccuracy error ----', err);
+  //     }
+  //   }
+  //
+  //   async requestLocationAccuracy({
+  //     purposeKey = 'full',
+  //   }: LocationAccuracyOptions) {
+  //     try {
+  //       return await requestLocationAccuracy({
+  //         purposeKey: purposeKey,
+  //       });
+  //     } catch (err) {
+  //       __DEV__ && console.warn('requestLocationAccuracy error ----', err);
+  //     }
+  //   }
 }
 
 export const permissionsService = new PermissionsService();

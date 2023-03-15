@@ -2,7 +2,7 @@
 import React from 'react';
 import { ScrollView, ImageBackground } from 'react-native';
 // hooks
-import { useStores } from '~/hooks';
+import { useRequestLocationPermission, useStores } from '~/hooks';
 import { sunrise } from '~/constants';
 import { observer } from 'mobx-react';
 import { styles } from './styles';
@@ -13,6 +13,13 @@ export const Dashboard: React.FC = observer(() => {
   const {
     userStore: { userWeatherLocation, userWeatherCurrent, userWeatherLoading },
   } = useStores();
+  const { requestPermissionLoading, checkLocationPermissionsLoading } =
+    useRequestLocationPermission();
+
+  const isWeatherLoading =
+    requestPermissionLoading ||
+    userWeatherLoading ||
+    checkLocationPermissionsLoading;
 
   return (
     <ImageBackground source={sunrise} style={styles.mainContainer}>
@@ -21,7 +28,7 @@ export const Dashboard: React.FC = observer(() => {
           style={styles.scroll}
           contentContainerStyle={styles.container}
         >
-          {userWeatherLoading ? (
+          {isWeatherLoading ? (
             <Shimmer />
           ) : (
             <>

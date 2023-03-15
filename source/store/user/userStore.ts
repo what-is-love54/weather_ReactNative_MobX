@@ -33,6 +33,7 @@ export default class UserStore {
     try {
       const response = await UserApi.getWeather(location);
 
+      console.log(response.data.location);
       this.setWeather(response.data);
     } catch (e) {
       console.log('==--> ERROR <--==', e);

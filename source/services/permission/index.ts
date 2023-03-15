@@ -46,7 +46,6 @@ class PermissionsService {
     try {
       const response = await check(type);
 
-      console.log(response);
       switch (response) {
         case RESULTS.GRANTED:
           onGranted?.();

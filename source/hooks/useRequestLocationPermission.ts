@@ -3,45 +3,50 @@
 import { useCallback, useEffect, useState } from 'react';
 import { permissionsService } from '~/services';
 import { permissionLocation, RootStack } from '~/constants';
-import { useCheckLocationPermission } from '~/hooks/useCheckLocationPermission';
 import { useRootNavigation } from '~/hooks/useRootNavigation';
+import { useGeolocation } from '~/hooks/useGeolocation';
+import { useStores } from '~/hooks/useStore';
 
 export const useRequestLocationPermission = () => {
-  const navigation = useRootNavigation();
   const [requestPermissionLoading, setRequestPermissionLoading] =
     useState(false);
-  const {
-    loading: checkLocationPermissionsLoading,
-    blocked: locationPermissionsBlocked,
-    denied: locationPermissionsDenied,
-    granted: locationPermissionGranted,
-  } = useCheckLocationPermission();
+  const { latitude, longitude } = useGeolocation();
+  const navigation = useRootNavigation();
+  const { userStore } = useStores();
 
   const handleLoadingNavigate = useCallback(() => {
     navigation(RootStack.LOADING);
   }, [navigation]);
 
+  const handleLoadWeather = useCallback(() => {
+    userStore.loadWeather(`${latitude},${longitude}`);
+  }, [latitude, longitude]);
+
   const handleLocationPermission = useCallback(() => {
     setRequestPermissionLoading(true);
-    permissionsService.requestPermission({
-      type: permissionLocation,
-      onGranted: () => {
+    permissionsService
+      .requestPermission({
+        type: permissionLocation,
+        onGranted: () => {
+          handleLoadWeather();
+        },
+        onDenied: () => {
+          handleLoadingNavigate();
+        },
+        onBlocked: () => {
+          handleLoadingNavigate();
+        },
+      })
+      .finally(() => {
         setRequestPermissionLoading(false);
-      },
-      onDenied: () => {
-        handleLoadingNavigate();
-        setRequestPermissionLoading(false);
-      },
-      onBlocked: () => {
-        handleLoadingNavigate();
-        setRequestPermissionLoading(false);
-      },
-    });
+      });
   }, []);
 
   useEffect(() => {
     handleLocationPermission();
   }, []);
 
-  return { requestPermissionLoading, checkLocationPermissionsLoading };
+  return {
+    requestPermissionLoading,
+  };
 };

@@ -9,4 +9,5 @@ export type RootStackParamList = {
         screen: string;
       }
     | undefined;
+  Loading: undefined;
 };

@@ -1,5 +1,7 @@
 PODS:
   - boost (1.76.0)
+  - BVLinearGradient (2.6.2):
+    - React-Core
   - CocoaAsyncSocket (7.6.5)
   - DoubleConversion (1.1.6)
   - FBLazyVector (0.71.1)
@@ -78,6 +80,12 @@ PODS:
   - hermes-engine/Pre-built (0.71.1)
   - libevent (2.1.12)
   - OpenSSL-Universal (1.1.1100)
+  - Permission-LocationAccuracy (3.7.3):
+    - RNPermissions
+  - Permission-LocationAlways (3.7.3):
+    - RNPermissions
+  - Permission-LocationWhenInUse (3.7.3):
+    - RNPermissions
   - RCT-Folly (2021.07.22.00):
     - boost
     - DoubleConversion
@@ -301,6 +309,8 @@ PODS:
     - react-native-config/App (= 1.5.0)
   - react-native-config/App (1.5.0):
     - React-Core
+  - react-native-geolocation (3.0.5):
+    - React-Core
   - react-native-restart (0.0.27):
     - React-Core
   - react-native-safe-area-context (4.5.0):
@@ -394,7 +404,11 @@ PODS:
     - React-Core
   - RNCAsyncStorage (1.17.11):
     - React-Core
+  - RNCMaskedView (0.2.8):
+    - React-Core
   - RNLocalize (2.2.4):
+    - React-Core
+  - RNPermissions (3.7.3):
     - React-Core
   - RNScreens (3.19.0):
     - React-Core
@@ -408,6 +422,7 @@ PODS:
 
 DEPENDENCIES:
   - boost (from `../node_modules/react-native/third-party-podspecs/boost.podspec`)
+  - BVLinearGradient (from `../node_modules/react-native-linear-gradient`)
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
   - FBLazyVector (from `../node_modules/react-native/Libraries/FBLazyVector`)
   - FBReactNativeSpec (from `../node_modules/react-native/React/FBReactNativeSpec`)
@@ -436,6 +451,9 @@ DEPENDENCIES:
   - hermes-engine (from `../node_modules/react-native/sdks/hermes-engine/hermes-engine.podspec`)
   - libevent (~> 2.1.12)
   - OpenSSL-Universal (= 1.1.1100)
+  - Permission-LocationAccuracy (from `../node_modules/react-native-permissions/ios/LocationAccuracy`)
+  - Permission-LocationAlways (from `../node_modules/react-native-permissions/ios/LocationAlways`)
+  - Permission-LocationWhenInUse (from `../node_modules/react-native-permissions/ios/LocationWhenInUse`)
   - RCT-Folly (from `../node_modules/react-native/third-party-podspecs/RCT-Folly.podspec`)
   - RCTRequired (from `../node_modules/react-native/Libraries/RCTRequired`)
   - RCTTypeSafety (from `../node_modules/react-native/Libraries/TypeSafety`)
@@ -453,6 +471,7 @@ DEPENDENCIES:
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
   - React-logger (from `../node_modules/react-native/ReactCommon/logger`)
   - react-native-config (from `../node_modules/react-native-config`)
+  - "react-native-geolocation (from `../node_modules/@react-native-community/geolocation`)"
   - react-native-restart (from `../node_modules/react-native-restart`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - React-perflogger (from `../node_modules/react-native/ReactCommon/reactperflogger`)
@@ -470,7 +489,9 @@ DEPENDENCIES:
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - RNBootSplash (from `../node_modules/react-native-bootsplash`)
   - "RNCAsyncStorage (from `../node_modules/@react-native-async-storage/async-storage`)"
+  - "RNCMaskedView (from `../node_modules/@react-native-masked-view/masked-view`)"
   - RNLocalize (from `../node_modules/react-native-localize`)
+  - RNPermissions (from `../node_modules/react-native-permissions`)
   - RNScreens (from `../node_modules/react-native-screens`)
   - RNSVG (from `../node_modules/react-native-svg`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
@@ -496,6 +517,8 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   boost:
     :podspec: "../node_modules/react-native/third-party-podspecs/boost.podspec"
+  BVLinearGradient:
+    :path: "../node_modules/react-native-linear-gradient"
   DoubleConversion:
     :podspec: "../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec"
   FBLazyVector:
@@ -506,6 +529,12 @@ EXTERNAL SOURCES:
     :podspec: "../node_modules/react-native/third-party-podspecs/glog.podspec"
   hermes-engine:
     :podspec: "../node_modules/react-native/sdks/hermes-engine/hermes-engine.podspec"
+  Permission-LocationAccuracy:
+    :path: "../node_modules/react-native-permissions/ios/LocationAccuracy"
+  Permission-LocationAlways:
+    :path: "../node_modules/react-native-permissions/ios/LocationAlways"
+  Permission-LocationWhenInUse:
+    :path: "../node_modules/react-native-permissions/ios/LocationWhenInUse"
   RCT-Folly:
     :podspec: "../node_modules/react-native/third-party-podspecs/RCT-Folly.podspec"
   RCTRequired:
@@ -536,6 +565,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/logger"
   react-native-config:
     :path: "../node_modules/react-native-config"
+  react-native-geolocation:
+    :path: "../node_modules/@react-native-community/geolocation"
   react-native-restart:
     :path: "../node_modules/react-native-restart"
   react-native-safe-area-context:
@@ -570,8 +601,12 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-bootsplash"
   RNCAsyncStorage:
     :path: "../node_modules/@react-native-async-storage/async-storage"
+  RNCMaskedView:
+    :path: "../node_modules/@react-native-masked-view/masked-view"
   RNLocalize:
     :path: "../node_modules/react-native-localize"
+  RNPermissions:
+    :path: "../node_modules/react-native-permissions"
   RNScreens:
     :path: "../node_modules/react-native-screens"
   RNSVG:
@@ -581,6 +616,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   boost: 57d2868c099736d80fcd648bf211b4431e51a558
+  BVLinearGradient: 34a999fda29036898a09c6a6b728b0b4189e1a44
   CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
   DoubleConversion: 5189b271737e1565bdce30deb4a08d647e3f5f54
   FBLazyVector: ad72713385db5289b19f1ead07e8e4aa26dcb01d
@@ -599,6 +635,9 @@ SPEC CHECKSUMS:
   hermes-engine: 922ccd744f50d9bfde09e9677bf0f3b562ea5fb9
   libevent: 4049cae6c81cdb3654a443be001fb9bdceff7913
   OpenSSL-Universal: ebc357f1e6bc71fa463ccb2fe676756aff50e88c
+  Permission-LocationAccuracy: bddbbd2b2feb71cbd2b5ab9f908aff4d4e2b7770
+  Permission-LocationAlways: f686a41ffa8cbdf302a3160375e332fb448453ef
+  Permission-LocationWhenInUse: 65399f1f4b7f495ae3cdcf5a887ae9882edc1e80
   RCT-Folly: 424b8c9a7a0b9ab2886ffe9c3b041ef628fd4fb1
   RCTRequired: fd4d923b964658aa0c4091a32c8b2004c6d9e3a6
   RCTTypeSafety: c276d85975bde3d8448907235c70bf0da257adfd
@@ -614,6 +653,7 @@ SPEC CHECKSUMS:
   React-jsinspector: ff56004b0c974b688a6548c156d5830ad751ae07
   React-logger: 60a0b5f8bed667ecf9e24fecca1f30d125de6d75
   react-native-config: 5330c8258265c1e5fdb8c009d2cabd6badd96727
+  react-native-geolocation: 7383cbe9fa75b168bbbe40b566070fd0b44d30d6
   react-native-restart: 7595693413fe3ca15893702f2c8306c62a708162
   react-native-safe-area-context: 39c2d8be3328df5d437ac1700f4f3a4f75716acc
   React-perflogger: ec8eef2a8f03ecfa6361c2c5fb9197ef4a29cc85
@@ -631,13 +671,15 @@ SPEC CHECKSUMS:
   ReactCommon: 03be76588338a27a88d103b35c3c44a3fd43d136
   RNBootSplash: b2014890e22f0b4895ed07ff4aebd52b63ade449
   RNCAsyncStorage: 8616bd5a58af409453ea4e1b246521bb76578d60
+  RNCMaskedView: bc0170f389056201c82a55e242e5d90070e18e5a
   RNLocalize: 0df7970cfc60389f00eb62fd7c097dc75af3fb4f
+  RNPermissions: 314155ed6ce65237e7bd9fb6239219cce83228d3
   RNScreens: ea4cd3a853063cda19a4e3c28d2e52180c80f4eb
   RNSVG: c1e76b81c76cdcd34b4e1188852892dc280eb902
   SocketRocket: fccef3f9c5cedea1353a9ef6ada904fde10d6608
   Yoga: 921eb014669cf9c718ada68b08d362517d564e0c
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: 6c8f691b4c5ebae616ed4a9df3af0d1701e60a95
+PODFILE CHECKSUM: d9f0e3fe0d7b6cc5de82b0a2c0f69dacc395ac0a
 
 COCOAPODS: 1.11.3

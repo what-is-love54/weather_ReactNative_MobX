@@ -10,4 +10,5 @@ export const colors = {
   _F56B63: '#F56B63',
   _AABDC6: '#AABDC6',
   _646390: '#646390',
+  _blue_rgb: 'rgba(100, 99, 144, 0.5)',
 };

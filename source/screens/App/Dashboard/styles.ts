@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
     alignItems: 'center',
-    marginHorizontal: 50,
+    marginHorizontal: 25,
   },
   scroll: {
     flex: 1,

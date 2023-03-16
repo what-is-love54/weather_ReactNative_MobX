@@ -9,4 +9,5 @@ export const colors = {
   _ECFF77: '#ECFF77',
   _F56B63: '#F56B63',
   _AABDC6: '#AABDC6',
+  _646390: '#646390',
 };

@@ -9,11 +9,19 @@ type Props = {
   style: StyleProp<ViewStyle>;
   disableTopInset?: boolean;
   disableBottomInset?: boolean;
+  isTabBarAbsolute?: boolean;
 };
 
 export const InsetsView: FC<Props> = memo(
-  ({ children, style, disableTopInset, disableBottomInset }) => {
+  ({
+    children,
+    style,
+    disableTopInset,
+    disableBottomInset,
+    isTabBarAbsolute = false,
+  }) => {
     const insets = useSafeAreaInsets();
+    const bottom = isTabBarAbsolute ? insets.bottom + 80 : insets.bottom;
 
     return (
       <View
@@ -21,7 +29,7 @@ export const InsetsView: FC<Props> = memo(
           style,
           {
             paddingTop: disableTopInset ? undefined : insets.top,
-            paddingBottom: disableBottomInset ? undefined : insets.bottom,
+            paddingBottom: disableBottomInset ? undefined : bottom,
           },
         ]}
       >

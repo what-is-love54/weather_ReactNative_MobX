@@ -1,23 +1,16 @@
 /** @format */
 
 import React, { memo, useCallback } from 'react';
-import {
-  Text,
-  View,
-  Button,
-  I18nManager,
-  ScrollView,
-  StyleSheet,
-} from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { Text, View, I18nManager } from 'react-native';
 import RNRestart from 'react-native-restart';
 // common
 import { useTranslation } from '~/hooks';
 import { envService } from '~/services';
-import { colors } from '~/constants';
+import { Button, InsetsView } from '~/components';
+// inner
+import { styles } from './styles';
 
 export const Settings: React.FC<any> = memo(() => {
-  const insets = useSafeAreaInsets();
   const { i18n } = useTranslation();
 
   const handlePressChangeLanguage = useCallback(() => {
@@ -28,36 +21,17 @@ export const Settings: React.FC<any> = memo(() => {
   }, []);
 
   return (
-    <View
-      style={{
-        flex: 1,
-        backgroundColor: colors._AABDC6,
-      }}
-    >
-      <ScrollView
-        style={[
-          styles.scroll,
-          {
-            paddingTop: Math.max(insets.top),
-            paddingBottom: Math.max(insets.bottom),
-          },
-        ]}
-      >
-        <Text>Hello world! It`s Settings!</Text>
-        <Text>{envService.envConfig.APP_ENV}</Text>
-        <Button title="Change to Arabic" onPress={handlePressChangeLanguage} />
-      </ScrollView>
-    </View>
+    <InsetsView style={styles.innerContainer} isTabBarAbsolute>
+      <View style={styles.mainContainer}>
+        <View style={styles.centerContainer}>
+          <Text style={styles.configText}>
+            Configuration: {envService.envConfig.APP_ENV}
+          </Text>
+        </View>
+        <View style={styles.bottomContainer}>
+          <Button text="Change to Arabic" onPress={handlePressChangeLanguage} />
+        </View>
+      </View>
+    </InsetsView>
   );
-});
-
-const styles = StyleSheet.create({
-  stretch: {
-    width: 50,
-    height: 200,
-    resizeMode: 'stretch',
-  },
-  scroll: {
-    flex: 1,
-  },
 });

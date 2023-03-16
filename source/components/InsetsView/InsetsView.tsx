@@ -2,7 +2,6 @@
 
 import React, { FC, memo } from 'react';
 import { StyleProp, View, ViewStyle } from 'react-native';
-
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 type Props = {

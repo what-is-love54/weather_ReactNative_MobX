@@ -1,7 +1,7 @@
 /** @format */
 
 import Config from 'react-native-config';
-
+// common
 import { getSync } from '~/utils';
 import { ENV, envConfig, IEnvConfig, ASYNC_KEYS } from '~/constants';
 import SettingsStore from '~/store/settings/settingsStore';

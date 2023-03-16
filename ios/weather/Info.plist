@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
     <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-    <string>YOUR TEXT</string>
+    <string>Application need your location to show current weather in your region</string>
     <key>NSLocationAlwaysUsageDescription</key>
-    <string>YOUR TEXT</string>
+    <string>Application need your location to show current weather in your region</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>

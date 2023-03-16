@@ -3,7 +3,7 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
+// common
 import { colors, IS_DARK_MODE, RootRoutes } from '~/constants';
 import { TabIcon } from '~/components';
 import { RootStackParamList } from '~/navigation/types';

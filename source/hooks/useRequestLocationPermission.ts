@@ -1,6 +1,7 @@
 /** @format */
 
 import { useCallback, useEffect, useState } from 'react';
+// common
 import { permissionsService } from '~/services';
 import { permissionLocation, RootStack } from '~/constants';
 import { useRootNavigation } from '~/hooks/useRootNavigation';

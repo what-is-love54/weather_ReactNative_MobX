@@ -1,8 +1,9 @@
 /** @format */
+
 import React from 'react';
 import { Text, View } from 'react-native';
-// hooks
 import { observer } from 'mobx-react';
+// inner
 import { styles } from './styles';
 
 export const MainInfo: React.FC<any> = observer(

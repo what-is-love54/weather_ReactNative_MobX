@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useCallback } from 'react';
 import Geolocation from '@react-native-community/geolocation';
+// common
 import { useCheckLocationPermission } from '~/hooks/useCheckLocationPermission';
 
 export const useGeolocation = () => {

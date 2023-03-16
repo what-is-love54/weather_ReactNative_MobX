@@ -1,9 +1,12 @@
 /** @format */
+
 import i18next from 'i18next';
 import { initReactI18next } from 'react-i18next';
+// common
 import { en, ua, ar } from '~/utils/locales';
-import { languageDetector } from './languageDetectorPlugin';
 import { isRTL } from '~/constants';
+// inner
+import { languageDetector } from './languageDetectorPlugin';
 
 const resources = {
   en: {

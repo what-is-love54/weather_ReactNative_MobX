@@ -1,6 +1,7 @@
 /** @format */
 
 import { PERMISSIONS } from 'react-native-permissions';
+// common
 import { IS_IOS } from '~/constants/device';
 
 export const permissionLocation = IS_IOS

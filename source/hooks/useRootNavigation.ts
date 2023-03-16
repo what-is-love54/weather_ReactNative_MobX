@@ -2,6 +2,7 @@
 import { useCallback } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+// common
 import { RootStackParamList } from '~/navigation/types';
 
 export const useRootNavigation = () => {

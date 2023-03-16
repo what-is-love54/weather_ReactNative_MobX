@@ -1,7 +1,8 @@
 /** @format */
 
-import apiClient from '~/services/api';
 import { AxiosResponse } from 'axios';
+// common
+import apiClient from '~/services/api';
 import { WeatherResponse } from '~/models';
 
 export class UserApi {

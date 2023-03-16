@@ -2,12 +2,13 @@
 
 import React, { memo, useCallback } from 'react';
 import { View, ActivityIndicator, Text, TouchableOpacity } from 'react-native';
-
-import { styles } from './styles';
+// common
 import { Button } from '~/components';
 import { permissionsService } from '~/services';
 import { RootStack } from '~/constants';
-import { useRootNavigation } from '~/hooks/useRootNavigation';
+import { useRootNavigation } from '~/hooks';
+// inner
+import { styles } from './styles';
 
 export const Loading: React.FC<any> = memo(() => {
   const navigation = useRootNavigation();

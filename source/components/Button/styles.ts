@@ -1,6 +1,7 @@
 /** @format */
 
 import { StyleSheet } from 'react-native';
+// common
 import { colors } from '~/constants';
 
 export const styles = StyleSheet.create({

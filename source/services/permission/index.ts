@@ -6,6 +6,7 @@ import {
   request,
   RESULTS,
 } from 'react-native-permissions';
+// common
 import { CheckPermission, RequestPermission } from '~/types';
 
 class PermissionsService {

@@ -1,4 +1,5 @@
 /** @format */
+
 import React, { FC, memo } from 'react';
 import {
   TouchableOpacity,

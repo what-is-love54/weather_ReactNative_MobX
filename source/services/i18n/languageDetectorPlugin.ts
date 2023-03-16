@@ -1,4 +1,5 @@
 /** @format */
+
 import { LanguageDetectorAsyncModule } from 'i18next';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as RNLocalize from 'react-native-localize';

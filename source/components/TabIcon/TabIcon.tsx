@@ -1,9 +1,8 @@
 /** @format */
 
 import React from 'react';
-
+// common
 import { TabDashboardIcon, TabSettingsIcon } from '~/assets/icons';
-
 import { RootRoutes } from '~/constants';
 
 type Props = {

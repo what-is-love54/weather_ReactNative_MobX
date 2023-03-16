@@ -3,8 +3,10 @@
 import React, { FC, memo } from 'react';
 import { View } from 'react-native';
 import SkeletonPlaceholder from 'react-native-skeleton-placeholder';
-import { styles } from './styles';
+// common
 import { colors } from '~/constants';
+// inner
+import { styles } from './styles';
 
 export const Shimmer: FC = memo(() => {
   return (

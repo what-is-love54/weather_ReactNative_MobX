@@ -1,5 +1,7 @@
 /** @format */
+
 import { makeAutoObservable } from 'mobx';
+// common
 import {
   IUserCurrent,
   IUserForecast,
@@ -33,10 +35,9 @@ export default class UserStore {
     try {
       const response = await UserApi.getWeather(location);
 
-      console.log(response.data.location);
       this.setWeather(response.data);
     } catch (e) {
-      console.log('==--> ERROR <--==', e);
+      __DEV__ && console.log('==--> ERROR <--==', e);
     } finally {
       this.setUserWeatherLoading(false);
     }

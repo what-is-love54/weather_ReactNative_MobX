@@ -2,10 +2,12 @@
 
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { RootStackParamList } from './types';
+// common
 import { RootStack } from '~/constants';
 import { AppNavigator } from '~/navigation/app/appNavigator';
 import { Loading } from '~/screens/Common';
+// inner
+import { RootStackParamList } from './types';
 
 const RootNavigationStack = createNativeStackNavigator<RootStackParamList>();
 

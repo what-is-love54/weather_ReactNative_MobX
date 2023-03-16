@@ -1,17 +1,18 @@
 /** @format */
 import React from 'react';
 import { ScrollView, ImageBackground } from 'react-native';
-// hooks
+import { observer } from 'mobx-react';
+// common
 import {
   useCheckLocationPermission,
   useRequestLocationPermission,
   useStores,
 } from '~/hooks';
 import { sunrise } from '~/constants';
-import { observer } from 'mobx-react';
-import { styles } from './styles';
 import { InsetsView, Shimmer } from '~/components';
+// inner
 import { MainInfo, Forecast } from './components';
+import { styles } from './styles';
 
 export const Dashboard: React.FC = observer(() => {
   const {

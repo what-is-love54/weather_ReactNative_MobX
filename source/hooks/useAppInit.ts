@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 import RNBootSplash from 'react-native-bootsplash';
-
+// common
 import { envService } from '~/services';
 import { initSyncStorage } from '~/utils';
 

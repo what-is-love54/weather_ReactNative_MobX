@@ -11,9 +11,8 @@ import {
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import RNRestart from 'react-native-restart';
-// hooks
+// common
 import { useTranslation } from '~/hooks';
-// services
 import { envService } from '~/services';
 import { colors } from '~/constants';
 

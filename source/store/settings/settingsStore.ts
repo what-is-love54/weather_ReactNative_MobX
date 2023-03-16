@@ -1,4 +1,5 @@
 /** @format */
+
 import { makeAutoObservable } from 'mobx';
 
 export default class SettingsStore {

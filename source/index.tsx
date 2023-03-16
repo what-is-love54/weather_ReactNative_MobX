@@ -8,16 +8,14 @@ import {
   SafeAreaProvider,
   initialWindowMetrics,
 } from 'react-native-safe-area-context';
-// const
+// common
 import { colors, IS_DARK_MODE } from '~/constants';
-// utils
-import './services/i18n';
 import { navigationRef } from '~/utils';
 import { useAppInit } from '~/hooks';
-// nav
 import { RootNavigation } from '~/navigation/rootNavigation';
-// store
 import { Store, userStore, settingsStore } from '~/store/rootStore';
+// inner
+import './services/i18n';
 
 enableScreens();
 
